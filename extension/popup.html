@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmaRTT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css"
+        integrity="sha256-Ro/wP8uUi8LR71kwIdilf78atpu8bTEwrK5ZotZo+Zc=" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="css/popup.css"/>
+</head>
+<body>
+
+<div class="container text-center d-none py-3">
+  <h2 id="username" class="mb-0"></h2>
+  <p><span id="email"></span> &bull; <span id="hours"></span> hours/day</p>
+
+  <div class="progresses">
+    <div class="daily">
+      <p class="mb-0">Daily progress: <span id="daily-progress-percent"></span></p>
+      <progress id="daily-progress"></progress>
+    </div>
+
+    <div class="monthly">
+      <p class="mb-0">Monthly progress: <span id="monthly-progress-percent"></span></p>
+      <progress id="monthly-progress"></progress>
+    </div>
+  </div>
+
+  <script src="js/popup.js" type="module"></script>
+</div>
+
+</body>
+</html>

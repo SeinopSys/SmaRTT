@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/rx": "^4.1.1",
+    "eslint": "^5.16.0"
+  }
+}

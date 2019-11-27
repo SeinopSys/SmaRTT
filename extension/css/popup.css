@@ -1,0 +1,28 @@
+@import "micro-bootstrap.css";
+
+html, body {
+  width: 500px;
+  margin: 0;
+}
+
+@media all and (min-width: 501px) {
+  html, body {
+    width: initial !important;
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  body > * {
+    margin: auto;
+  }
+}
+
+progress {
+  width: 100%;
+  max-width: 500px;
+}

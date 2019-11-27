@@ -1,0 +1,16 @@
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
