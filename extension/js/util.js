@@ -1,4 +1,4 @@
-export const origin = 'http://backend.example.com/';
+export const origin = 'http://backend.rtt.dolphio.hu/';
 
 export const pad = (input, padWith, targetLength, fromLeft) => {
   if (typeof input !== 'string')

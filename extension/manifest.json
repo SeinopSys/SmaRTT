@@ -5,12 +5,12 @@
   "manifest_version": 2,
   "permissions": [
     "storage",
-    "http://backend.example.com/"
+    "http://backend.rtt.dolphio.hu/"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://backend.example.com/*"
+        "http://rtt.dolphio.hu/*"
       ],
       "js": [
         "js/content.js"

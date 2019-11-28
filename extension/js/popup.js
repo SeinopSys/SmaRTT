@@ -59,18 +59,24 @@ const update = () => {
       const todaysDate = `${currentYear}-${pad(currentMonth)}-${pad(currentDay)}`;
       const todaysTracking = trackings.find(el => el.date === todaysDate);
 
-      if (todaysTracking.trackings && todaysTracking.trackings.length > 0) {
-        dailyProgress.max = hoursToSeconds(workHoursPerDay);
+      // TODO Get currently running item
+      dailyProgress.max = hoursToSeconds(workHoursPerDay);
+      if (todaysTracking && todaysTracking.trackings && todaysTracking.trackings.length > 0) {
         const totalSecondsWorkedToday = todaysTracking.trackings.reduce(
           (acc, el) => acc + (timeStringToSecondsSinceEpoch(el.workTimeTo) - timeStringToSecondsSinceEpoch(el.workTimeFrom)),
           0
         );
         dailyProgress.value = totalSecondsWorkedToday;
         dailyProgressPercent.innerText = `${formatPercent(totalSecondsWorkedToday / dailyProgress.max)} (${secondsToHoursString(dailyProgress.max - totalSecondsWorkedToday)})`;
+      } else {
+        dailyProgress.value = 0;
+        dailyProgressPercent.innerText = `${formatPercent(0)} (${secondsToHoursString(dailyProgress.max)})`;
       }
     }
 
     container.classList.remove('d-none');
+  }).catch(err => {
+    console.error(err);
   });
 };
 
