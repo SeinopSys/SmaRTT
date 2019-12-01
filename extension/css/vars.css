@@ -1,17 +1,31 @@
 :root {
   --fa-size: 1em;
 
-  --milligram-primary: #90b8ff;
-  --milligram-primary-invert: #000;
   --milligram-primary-desaturated: #c9c9c9;
-  --milligram-bg: #333;
-  --milligram-text: #ccc;
-  --milligram-bg-light: #666;
   --milligram-input-background: transparent;
-  --milligram-input-background-readonly: rgba(255, 255, 255, .3);
   --milligram-input-border: #d1d1d1;
   --milligram-table-border: #e1e1e1;
 
+  --milligram-primary: #90b8ff;
+  --milligram-primary-invert: #000;
+  --milligram-bg: #333;
+  --milligram-text: #ccc;
+  --milligram-bg-light: #666;
+  --milligram-input-background-readonly: rgba(255, 255, 255, .3);
+  --progress-bar-shadow: #000;
+
   --success: rgb(120, 201, 79);
   --progress-radius: .5rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --milligram-primary: #9b4dca;
+    --milligram-primary-invert: #fff;
+    --milligram-bg: #fff;
+    --milligram-text: #606c76;
+    --milligram-bg-light: #f4f5f6;
+    --milligram-input-background-readonly: rgba(0, 0, 0, .3);
+    --progress-bar-shadow: rgba(150, 150, 150, .5);
+  }
 }

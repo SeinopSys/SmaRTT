@@ -1,7 +1,7 @@
 {
   "name": "SmaRTT",
   "description": "Work SmaRTTer, not harder",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "manifest_version": 2,
   "permissions": [
     "storage",

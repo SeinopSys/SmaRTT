@@ -18,9 +18,8 @@
     <label for="hours">Napi munkaórák száma</label>
     <input id="hours" type="number" min="1" step="0.5">
 
-    <!-- TODO Replace with http://naptarak.com/naptarak_munka?pager_year=YYYY -->
-    <label for="workdayOffset">Munkanapok számának csökkentése ennyivel</label>
-    <input id="workdayOffset" type="number" min="0" step="1">
+    <label for="workdayOffset">Munkanapok számának eltolása ennyivel</label>
+    <input id="workdayOffset" type="number" min="-12" max="12" step="1">
 
     <label for="updateCountdown">Backend frissítési időintervallum (másodpercben)</label>
     <input id="updateCountdown" type="number" min="10" step="1">

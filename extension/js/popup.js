@@ -76,8 +76,8 @@ const update = async () => {
     } = settings;
     username.innerText = userData.userName;
     hours.innerText = workHoursPerDay;
-    // TODO Use the calendar page for more accurate data
-    const monthlyWorkdays = getWeekdaysInMonth(currentYear, currentMonth - 1) - workdayOffset;
+    // TODO Use the calendar page for more accurate data + add permanent days off
+    const monthlyWorkdays = getWeekdaysInMonth(currentYear, currentMonth - 1) + workdayOffset;
     workdays.innerText = String(monthlyWorkdays);
 
     let totalSecondsWorkedThisMonth = 0, totalSecondsWorkedToday = 0;
