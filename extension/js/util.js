@@ -125,4 +125,4 @@ export const log = (...args) => {
   console.log(...args);
 };
 
-export const isNotOwnTime = tracking => tracking.projectID !== ownTimeProjectId;
+export const isNotOwnTime = tracking => tracking && tracking.projectID !== ownTimeProjectId;
