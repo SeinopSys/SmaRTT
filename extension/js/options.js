@@ -1,4 +1,7 @@
 import storage from './storage.js';
+import { outputVersionInfo } from './util.js';
+
+outputVersionInfo();
 
 const settingsForm = document.getElementById('settings');
 const submitButton = settingsForm.querySelector('button');
@@ -25,7 +28,7 @@ settingsForm.addEventListener('submit', e => {
   storage.set(newSettings).then(() => {
     submitButton.disabled = false;
   })
-    .catch((e) => {
+    .catch(e => {
       console.log(e);
       alert('Could not update settings');
     })

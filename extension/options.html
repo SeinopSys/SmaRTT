@@ -2,21 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>SmaRTT Beállítások</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css"
-        integrity="sha256-Ro/wP8uUi8LR71kwIdilf78atpu8bTEwrK5ZotZo+Zc=" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="css/vars.css"/>
+  <link rel="stylesheet" href="css/milligram.css"/>
+  <link rel="stylesheet" href="css/micro-bootstrap.css"/>
 </head>
 <body>
 <div class="container">
   <h2>
-    <img src="images/logo32.png">
-    SmaRTT
+    <img src="images/logo32.png" alt="logo">
+    <span id="version"></span> Beállítások
   </h2>
   <form id="settings">
-    <label for="hours">Daily work hours</label>
+    <label for="hours">Napi munkaórák száma</label>
     <input id="hours" type="number" min="1" step="0.5">
 
-    <button type="submit" class="button" disabled>Save</button>
+    <!-- TODO Replace with http://naptarak.com/naptarak_munka?pager_year=YYYY -->
+    <label for="workdayOffset">Munkanapok számának csökkentése ennyivel</label>
+    <input id="workdayOffset" type="number" min="0" step="1">
+
+    <label for="updateCountdown">Backend frissítési időintervallum (másodpercben)</label>
+    <input id="updateCountdown" type="number" min="10" step="1">
+
+    <label for="token">Token (RTT-ből automatikusan beolvasásra kerül oldallátogatáskor)</label>
+    <input id="token" type="password" readonly>
+
+    <button type="submit" class="button" disabled>Mentés</button>
   </form>
 </div>
 <script src="js/options.js" type="module"></script>

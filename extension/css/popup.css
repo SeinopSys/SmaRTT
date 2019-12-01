@@ -1,4 +1,7 @@
-@import "micro-bootstrap.css";
+@import url("milligram.css");
+@import url("micro-bootstrap.css");
+@import url("micro-fa.css");
+@import url("vars.css");
 
 html, body {
   width: 500px;
@@ -22,7 +25,81 @@ html, body {
   }
 }
 
+body {
+  user-select: none;
+}
+
+#update-data {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.progresses > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 progress {
   width: 100%;
   max-width: 500px;
+  height: 1rem;
+  border-radius: var(--progress-radius);
+  box-shadow: 0 1px 5px #000;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--milligram-bg-light);
+  border-radius: var(--progress-radius);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-value {
+  border-top-right-radius: var(--progress-radius);
+  border-bottom-right-radius: var(--progress-radius);
+  background-color: var(--milligram-primary);
+  transition: background-color 1s linear;
+}
+
+progress.overtime::-webkit-progress-value {
+  background-color: var(--success);
+}
+
+footer .logo {
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: middle;
+}
+
+#credits {
+  font-size: .8em;
+}
+
+#failure-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 500px;
+  width: 100%;
+  height: 100%;
+}
+
+#failure-container > .alert {
+  flex: 0 0 auto;
+}
+
+#failure-container > iframe {
+  flex: 1 1 auto;
+  border: 0;
+}
+
+.alert {
+  color: #a65a02;
+  background: #fec;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+  position: relative;
+  z-index: 2;
 }

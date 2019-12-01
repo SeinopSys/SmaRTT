@@ -1,13 +1,52 @@
+.height-3 {
+  height: 1em !important;
+  line-height: 1em !important;
+}
+
+.vertical-align-middle {
+  vertical-align: middle !important;
+}
+
+.vertical-align-top {
+  vertical-align: top !important;
+}
+
+a.disabled {
+  color: var(--milligram-primary-desaturated) !important;
+  cursor: default !important;
+}
+
 .mb-0 {
   margin-bottom: 0 !important;
+}
+
+.ml-2 {
+  margin-left: .75rem !important;
+}
+
+.mt-5 {
+  margin-top: 2.5rem !important;
 }
 
 .text-center {
   text-align: center !important;
 }
 
+.d-inline-block {
+  display: inline-block !important;
+}
+
 .d-none {
   display: none !important;
+}
+
+.p-3 {
+  padding: 1rem !important;
+}
+
+.px-1 {
+  padding-left: .5rem !important;
+  padding-right: .5rem !important;
 }
 
 .py-3 {

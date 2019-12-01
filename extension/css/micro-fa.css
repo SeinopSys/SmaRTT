@@ -1,0 +1,39 @@
+.fa {
+  font-style: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.fa, .fa svg {
+  display: inline-block;
+  width: var(--fa-size);
+  height: var(--fa-size);
+}
+
+.fa svg {
+  vertical-align: top;
+}
+
+.fa svg path {
+  fill: currentColor;
+}
+
+.fa.fa-spin {
+  animation: spin 1s linear infinite;
+}
+
+.fa.fa-staggered-spin {
+  animation: mega-spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+
+@keyframes mega-spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(1800deg) }
+}

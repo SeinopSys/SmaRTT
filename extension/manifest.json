@@ -1,10 +1,13 @@
 {
   "name": "SmaRTT",
   "description": "Work SmaRTTer, not harder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 2,
   "permissions": [
     "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeWebRequest",
     "http://backend.rtt.dolphio.hu/"
   ],
   "content_scripts": [

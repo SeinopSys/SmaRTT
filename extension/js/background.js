@@ -1,8 +1,32 @@
 import storage from './storage.js';
-import { origin } from './util.js';
 
-chrome.runtime.onMessage.addListener(request => void storage.set('token', request.token));
-
-const frame = document.createElement('iframe');
-frame.src = origin;
-frame.append(document.body);
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (typeof request.token !== 'string') {
+    sendResponse(false);
+    return;
+  }
+  storage.set('token', request.token);
+  sendResponse(true);
+});
+chrome.webRequest.onBeforeRequest.addListener(
+  e => {
+    console.log(e);
+    return ({ cancel: true });
+  },
+  {
+    urls: ['http://signin.rtt.dolphio.hu/*']
+  },
+  ['blocking']
+);
+chrome.declarativeWebRequest.onRequest.addRules([
+  {
+    conditions: [
+      new chrome.declarativeWebRequest.RequestMatcher({
+        url: { hostEquals: 'signin.rtt.dolphio.hu' }
+      })
+    ],
+    actions: [
+      new chrome.declarativeWebRequest.CancelRequest()
+    ]
+  }
+]);

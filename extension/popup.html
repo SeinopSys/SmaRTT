@@ -2,32 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SmaRTT</title>
+  <title>00:00:00 - SmaRTT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css"
-        integrity="sha256-Ro/wP8uUi8LR71kwIdilf78atpu8bTEwrK5ZotZo+Zc=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="css/milligram.css"/>
   <link rel="stylesheet" href="css/popup.css"/>
 </head>
 <body>
 
 <div class="container text-center d-none py-3">
-  <h2 id="username" class="mb-0"></h2>
-  <p><span id="email"></span> &bull; <span id="hours"></span> hours/day</p>
+  <h2 class="mb-0">
+    <span id="username"></span>
+    <a class="button button-clear ml-2 mb-0 vertical-align-top px-1" id="update-data">
+      <i class="fa fa-sync-alt vertical-align-middle"></i>
+      <span id="update-countdown" class="d-inline-block vertical-align-middle height-3">&hellip;</span>
+    </a>
+  </h2>
+  <p><span id="hours"></span> munkaóra/nap &bull; <span id="workdays"></span> munkanap ebben a hónapban</p>
 
   <div class="progresses">
     <div class="daily">
-      <p class="mb-0">Daily progress: <span id="daily-progress-percent"></span></p>
+      <p class="mb-0"><strong>Ma:</strong> <span id="daily-progress-percent"></span></p>
       <progress id="daily-progress"></progress>
     </div>
 
     <div class="monthly">
-      <p class="mb-0">Monthly progress: <span id="monthly-progress-percent"></span></p>
+      <p class="mb-0"><strong>Aktuális hónap:</strong> <span id="monthly-progress-percent"></span></p>
       <progress id="monthly-progress"></progress>
     </div>
   </div>
 
-  <script src="js/popup.js" type="module"></script>
+  <footer class="mt-5">
+    <p class="mb-0">
+      <img src="images/logo16.png" class="logo" alt="logo">
+      <span id="version"></span>
+      &bull;
+      <a id="options" href="#options">Beállítások</a>
+    </p>
+    <div id="credits">
+      <p class="mb-0">Ikonok: <a href="https://fontawesome.com/license" target="_blank">Font Awesome</a> v5.11.2</p>
+    </div>
+  </footer>
 </div>
 
+<script src="js/popup.js" type="module"></script>
 </body>
 </html>

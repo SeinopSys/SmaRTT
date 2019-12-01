@@ -1,7 +1,5 @@
-if (window.location.href.startsWith('http://rtt.dolphio.hu/')) {
-  const token = localStorage.getItem('rttApp-prod-docker.token');
-  if (token) {
-    chrome.runtime.sendMessage({ token });
-  }
-}
-
+const sendToken = () =>
+  chrome.runtime.sendMessage({ token: localStorage.getItem('rttApp-prod-docker.token') }, resp =>
+    void resp || setTimeout(sendToken, 2000)
+  );
+sendToken();

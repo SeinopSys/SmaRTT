@@ -1,0 +1,17 @@
+:root {
+  --fa-size: 1em;
+
+  --milligram-primary: #90b8ff;
+  --milligram-primary-invert: #000;
+  --milligram-primary-desaturated: #c9c9c9;
+  --milligram-bg: #333;
+  --milligram-text: #ccc;
+  --milligram-bg-light: #666;
+  --milligram-input-background: transparent;
+  --milligram-input-background-readonly: rgba(255, 255, 255, .3);
+  --milligram-input-border: #d1d1d1;
+  --milligram-table-border: #e1e1e1;
+
+  --success: rgb(120, 201, 79);
+  --progress-radius: .5rem;
+}

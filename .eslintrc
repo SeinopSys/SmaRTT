@@ -2,7 +2,7 @@
   "root": true,
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "env": {
@@ -15,6 +15,21 @@
     "object-curly-spacing": [
       "error",
       "always"
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "brace-style": [
+      "error",
+      "1tbs"
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
     ]
   },
   "globals": {
