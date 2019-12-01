@@ -29,4 +29,4 @@ export const getTrackings = (startDate, endDate, withModReqs) =>
 export const getActiveTracking = () => fetchAuthenticated('/users/current/trackings/active')
   .then(activeTracking => isNotOwnTime(activeTracking) ? activeTracking : null);
 
-export const getServerTime = () => fetchAuthenticated('/time').then(time => new Date(time));
+export const getServerTime = () => fetchAuthenticated('/time').then(time => new Date(time)).catch(() => new Date());

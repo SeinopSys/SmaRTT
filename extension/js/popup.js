@@ -145,8 +145,8 @@ const update = async () => {
     alert.classList.add('alert');
     const alertText = document.createTextNode(
       err instanceof Error
-      ? `${manifest.name} - ${err.name} (${err.message})`
-      : 'Unexpected error while loading tracking data'
+        ? `${manifest.name} - ${err.name} (${err.message})`
+        : 'Unexpected error while loading tracking data'
     );
     const loadingIcon = document.createElement('i');
     loadingIcon.classList.add('fa', 'fa-sync-alt', 'fa-staggered-spin', 'ml-2');
