@@ -90,6 +90,7 @@ export const castSettings = settings => ({
   replaceLogo: settings.replaceLogo === '1',
   replaceNewTab: settings.replaceNewTab === '1',
   darkTheme: settings.darkTheme === '1',
+  blockSignIn: settings.blockSignIn === '1',
 });
 
 export class InvalidJsonError extends Error {

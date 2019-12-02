@@ -17,7 +17,8 @@
         "http://rtt.dolphio.hu/*"
       ],
       "js": [
-        "js/content.js"
+        "js/content.js",
+        "js/signin.js"
       ],
       "run_at": "document_start",
       "all_frames": true

@@ -8,25 +8,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   storage.set('token', request.token);
   sendResponse(true);
 });
-chrome.webRequest.onBeforeRequest.addListener(
-  () => ({ cancel: true }),
-  {
-    urls: ['http://signin.rtt.dolphio.hu/*']
-  },
-  ['blocking']
-);
-chrome.declarativeWebRequest.onRequest.addRules([
-  {
-    conditions: [
-      new chrome.declarativeWebRequest.RequestMatcher({
-        url: { hostEquals: 'signin.rtt.dolphio.hu' }
-      })
-    ],
-    actions: [
-      new chrome.declarativeWebRequest.CancelRequest()
-    ]
-  }
-]);
 chrome.tabs.onCreated.addListener(tab => {
   if (tab.pendingUrl !== 'chrome://newtab/') return;
   storage.get('replaceNewTab').then(replaceNewTabSetting => {

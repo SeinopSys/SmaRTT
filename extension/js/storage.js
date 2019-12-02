@@ -8,6 +8,7 @@ const defaultSettings = {
   replaceLogo: '1',
   replaceNewTab: '0',
   darkTheme: '0',
+  blockSignIn: '1',
 };
 
 const get = key => new Promise(res => {
