@@ -20,6 +20,16 @@
       ],
       "run_at": "document_start",
       "all_frames": true
+    },
+    {
+      "matches": [
+        "http://rtt.dolphio.hu/*"
+      ],
+      "js": [
+        "js/logo.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
     }
   ],
   "background": {
@@ -47,5 +57,8 @@
     "64": "images/logo64.png",
     "128": "images/logo128.png",
     "256": "images/logo256.png"
-  }
+  },
+  "web_accessible_resources": [
+    "images/*"
+  ]
 }
