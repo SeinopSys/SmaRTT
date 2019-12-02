@@ -7,6 +7,6 @@ sendToken();
 $(() => {
   requestAnimationFrame(() => {
     $('#heading > span.name').html('SmarRTT');
-    $('#heading > img').attr('src', 'https://cdn3.iconfinder.com/data/icons/gray-user-toolbar/512/manager-512.png');
+    $('#heading > img').attr('src', chrome.extension.getURL("images/logo256.png"));
   });
 });
