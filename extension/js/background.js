@@ -9,10 +9,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   sendResponse(true);
 });
 chrome.webRequest.onBeforeRequest.addListener(
-  e => {
-    console.log(e);
-    return ({ cancel: true });
-  },
+  () => ({ cancel: true }),
   {
     urls: ['http://signin.rtt.dolphio.hu/*']
   },
@@ -30,3 +27,12 @@ chrome.declarativeWebRequest.onRequest.addRules([
     ]
   }
 ]);
+chrome.tabs.onCreated.addListener(tab => {
+  if (tab.pendingUrl !== 'chrome://newtab/') return;
+  storage.get('replaceNewTab').then(replaceNewTabSetting => {
+    if (!replaceNewTabSetting) return;
+    chrome.tabs.update(tab.id, {
+      url: chrome.extension.getURL('index.html')
+    });
+  });
+});

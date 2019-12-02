@@ -1,18 +1,28 @@
 import storage from './storage.js';
-import { outputVersionInfo } from './util.js';
+import { outputVersionInfo, setThemeClass } from './util.js';
 
+setThemeClass();
 outputVersionInfo();
 
 const settingsForm = document.getElementById('settings');
 const submitButton = settingsForm.querySelector('button');
+const getInputs = () => Array.from(settingsForm.querySelectorAll('input'));
 
-const inputs = Array.from(settingsForm.children).reduce(
-  (settings, el) => el.matches('input') ? { ...settings, [el.id]: el } : settings
-);
+const inputs = getInputs().reduce((settings, el) => ({ ...settings, [el.id]: el }), {});
 storage.get(Object.keys(inputs)).then(settings => {
   if (settings) {
     Object.keys(settings).forEach(inputName => {
-      inputs[inputName].value = settings[inputName];
+      if (typeof inputs[inputName] === 'undefined') {
+        console.error(`inputs[${inputName}] is undefined`);
+        return;
+      }
+      switch (inputs[inputName].type) {
+        case 'checkbox':
+          inputs[inputName].checked = settings[inputName];
+          break;
+        default:
+          inputs[inputName].value = settings[inputName];
+      }
     });
   }
   submitButton.disabled = false;
@@ -21,13 +31,26 @@ storage.get(Object.keys(inputs)).then(settings => {
 settingsForm.addEventListener('submit', e => {
   e.preventDefault();
   submitButton.disabled = true;
-  const newSettings = Array.from(settingsForm.children).reduce(
-    (settings, el) => el.matches('input') ? { ...settings, [el.id]: el.value } : settings
-  );
+  const newSettings = getInputs().reduce((settings, el) => {
+    if (!el.matches('input'))
+      return settings;
 
-  storage.set(newSettings).then(() => {
-    submitButton.disabled = false;
-  })
+    let value;
+    switch (el.type) {
+      case 'checkbox':
+        value = el.checked ? '1' : '0';
+        break;
+      case 'number':
+      case 'password':
+      case 'text':
+      default:
+        value = el.value;
+    }
+    return { ...settings, [el.id]: value };
+  }, {});
+
+  storage.set(newSettings)
+    .then(() => void location.reload())
     .catch(e => {
       console.log(e);
       alert('Could not update settings');
@@ -35,5 +58,4 @@ settingsForm.addEventListener('submit', e => {
     .finally(() => {
       submitButton.disabled = false;
     });
-})
-;
+});

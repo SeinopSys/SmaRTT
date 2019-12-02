@@ -1,3 +1,5 @@
+import storage from './storage.js';
+
 export const origin = 'http://backend.rtt.dolphio.hu/';
 
 export const ownTimeProjectId = 1;
@@ -85,6 +87,9 @@ export const castSettings = settings => ({
   hours: Number(settings.hours),
   updateCountdown: Number(settings.updateCountdown),
   workdayOffset: Number(settings.workdayOffset),
+  replaceLogo: settings.replaceLogo === '1',
+  replaceNewTab: settings.replaceNewTab === '1',
+  darkTheme: settings.darkTheme === '1',
 });
 
 export class InvalidJsonError extends Error {
@@ -115,6 +120,14 @@ export const outputVersionInfo = (elementId = 'version') => {
   const manifest = chrome.runtime.getManifest();
   version.innerText = `${manifest.name} ${manifest.version}`;
   return manifest;
+};
+
+export const setThemeClass = () => {
+  storage.get('darkTheme').then(darkTheme => {
+    if (darkTheme) {
+      document.documentElement.classList.add('dark-theme');
+    }
+  })
 };
 
 export const log = (...args) => {

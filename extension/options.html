@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
   <meta charset="UTF-8">
   <title>SmaRTT Beállítások</title>
@@ -26,6 +26,21 @@
 
     <label for="token">Token (RTT-ből automatikusan beolvasásra kerül oldallátogatáskor)</label>
     <input id="token" type="password" readonly>
+
+    <div>
+      <input type="checkbox" id="replaceLogo" value="1">
+      <label class="label-inline" for="replaceLogo">RTT logó lecserélése</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="replaceNewTab" value="1">
+      <label class="label-inline" for="replaceNewTab">Új lap oldal felülírása</label>
+    </div>
+
+    <div>
+      <input type="checkbox" id="darkTheme" value="1">
+      <label class="label-inline" for="darkTheme">Sötét téma a kiegészítő oldalain</label>
+    </div>
 
     <button type="submit" class="button" disabled>Mentés</button>
   </form>

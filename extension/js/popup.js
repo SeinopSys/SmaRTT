@@ -10,10 +10,12 @@ import {
   outputVersionInfo,
   pad,
   secondsToTimeDifferenceString,
+  setThemeClass,
   timeStringToSecondsSinceEpoch,
   updateProgress
 } from './util.js';
 
+setThemeClass();
 const manifest = outputVersionInfo();
 const options = document.getElementById('options');
 options.addEventListener('click', e => {
@@ -74,7 +76,7 @@ const update = async () => {
       updateCountdown: defaultUpdateCountdown,
       workdayOffset,
     } = settings;
-    username.innerText = userData.userName;
+    username.innerText = userData.realName;
     hours.innerText = workHoursPerDay;
     // TODO Use the calendar page for more accurate data + add permanent days off
     const monthlyWorkdays = getWeekdaysInMonth(currentYear, currentMonth - 1) + workdayOffset;

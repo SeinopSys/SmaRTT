@@ -1,7 +1,18 @@
-setTimeout(function() {
+chrome.storage.local.get(['replaceLogo'], result => {
+  if (result.replaceLogo === '0')
+    return;
+
   const manifest = chrome.runtime.getManifest();
-  document.querySelector("#heading > span.name").innerHTML = manifest.name;
-  document.querySelector("#heading > img").src = chrome.runtime.getURL(
-    "images/logo256.png"
-  );
-}, 50);
+  let headingElement;
+  const recurse = () => {
+    headingElement = document.getElementById('heading');
+    if (!headingElement) {
+      setTimeout(recurse, 10);
+      return;
+    }
+
+    headingElement.children[0].src = chrome.runtime.getURL('images/logo64.png');
+    headingElement.children[1].innerHTML = manifest.name;
+  };
+  recurse();
+});
