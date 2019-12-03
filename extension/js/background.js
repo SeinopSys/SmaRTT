@@ -9,7 +9,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   sendResponse(true);
 });
 chrome.tabs.onCreated.addListener(tab => {
-  if (tab.pendingUrl !== 'chrome://newtab/') return;
+  if ((tab.url || tab.pendingUrl) !== 'chrome://newtab/') {
+    return;
+  }
   storage.get('replaceNewTab').then(replaceNewTabSetting => {
     if (!replaceNewTabSetting) return;
     chrome.tabs.update(tab.id, {
